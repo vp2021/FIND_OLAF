@@ -1,0 +1,156 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set a background image */
+body {
+    font-family: 'Helvetica', sans-serif;
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Adjust the main container for the game */
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Style the game elements */
+/* Add this CSS for the illumination effect on the score */
+.score {
+    font-size: 100px;
+    color: #d6d6eb;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    animation: illuminate 1s linear infinite;
+}
+
+@keyframes illuminate {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+}
+
+
+.highScore {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: black;
+    font-size: 22px;
+    font-weight: 900;
+    text-shadow: 5px 5px 10px white;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Add this CSS for the illumination effect on the countdown and "Time's UP" message */
+/* Adjust the countdown position and visibility */
+.countdown {
+    position: absolute;
+    top: 10px; /* Adjust the top position as needed */
+    right: 10px; /* Adjust the right position as needed */
+    font-size: 20px;
+    color: #010124;
+    animation: illuminate 1s linear infinite;
+}
+
+
+.startButton {
+    /* ... (existing CSS styles) */
+    animation: illuminate 1s linear infinite;
+}
+
+@keyframes illuminate {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+}
+
+
+.startButton {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #010124;
+    color: white;
+    padding: 20px 50px;
+    border-radius: 5px;
+    z-index: 200;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 24px;
+}
+
+.game {
+    width: 600px;
+    height: 400px;
+    margin: 70px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hole {
+    flex: 1 0 33.33%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hole:after {
+    content: '';
+    display: block;
+    background: url('snow1r.png');
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    z-index: 2;
+    bottom: -30px;
+    background-size: contain;
+}
+
+.mole {
+    background-image: url('olaf.gif');
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.mole.small {
+    background-size: 90%;
+}
+
+.mole.large {
+    background-size: 90%;
+}
+
+.hole.up .mole {
+    top: 0;
+}

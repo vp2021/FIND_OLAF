@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="highScore">High Score: 0</div>
+    <script>
+        const highScoreBoard = document.querySelector('.highScore');
+        let score = 0;
+        let highScore = localStorage.getItem('game1HighScore') || 0;
+        highScoreBoard.textContent = 'HIGH SCORE: ' + highScore;
+
+        function checkHighScore() {
+            if(score > localStorage.getItem('game1HighScore')){
+                localStorage.setItem('game1HighScore',score);
+                highScore = score;
+                highScoreBoard.textContent = 'HIGH SCORE: ' + highScore;
+            }
+        }
+    </script>
+</body>
+</html>
